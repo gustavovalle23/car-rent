@@ -1,4 +1,4 @@
-from database.user import create_user
+from database.user.repository import create_user
 
 
 def initial_seed():
