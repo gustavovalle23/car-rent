@@ -1,5 +1,5 @@
-__init__.py
 venv/
 __pycache__/
 *db
 .env
+.idea
