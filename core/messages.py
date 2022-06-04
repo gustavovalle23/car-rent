@@ -26,5 +26,6 @@ Ok. Let's start!
 7. List all Clients
 8. Create car
 9. Update car
-10. Convert to json
+10. Convert to json and zip
+11. Tell me a fact about cats
 """

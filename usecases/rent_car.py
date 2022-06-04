@@ -105,6 +105,13 @@ def rent_car(option: str):
         print('\n Rents exported')
         sleep(1)
         print('\n Database exported')
+    elif option == '11':
+        import requests
+        import json
+        url = 'https://catfact.ninja/fact'
+        response = requests.get(url)
+        data = json.loads(response.text)
+        print(data['fact'])
 
 
     else:
