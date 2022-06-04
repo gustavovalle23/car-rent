@@ -1,10 +1,12 @@
 from typing import Optional
+from core.common import clear_screen
 from core.entity.user import User
 
 from database.user.repository import check_if_password_is_correct, create_user
 
 
 def login():
+    clear_screen()
     from usecases.menu import features_menu
     """ login with username and password """
     username = input("Username: ")
@@ -20,6 +22,7 @@ def login():
 
 
 def register():
+    clear_screen()
     """ register new user """
     name = input("Name: ")
     username = input("Username: ")

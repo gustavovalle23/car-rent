@@ -15,6 +15,8 @@ Have a fun!
 
 
 features_menu_message: str = """
+Ok. Let's start!
+
 1. Search for a car
 2. List all cars
 3. List all cars by body type
