@@ -37,7 +37,7 @@ def update_user(name: str, username: str, email: str, phone: str) -> None:
     conn.close()
 
 
-def get_user_by_username(username) -> Optional[User]:
+def find_user_by_username(username) -> Optional[User]:
     """ get user by username """
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
@@ -46,7 +46,7 @@ def get_user_by_username(username) -> Optional[User]:
     return user
 
 
-def get_user_by_email(email) -> Optional[User]:
+def find_user_by_email(email) -> Optional[User]:
     """ get user by email """
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
@@ -74,7 +74,7 @@ def check_if_password_is_correct(username: str, password: str) -> Optional[User]
     return user
 
 
-def get_all_users() -> Optional[List[User]]:
+def find_all_users() -> Optional[List[User]]:
     """ get all users """
     conn = sqlite3.connect("database.db")
     c = conn.cursor()

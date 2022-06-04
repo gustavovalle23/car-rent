@@ -13,7 +13,6 @@ class BodyType(Enum):
 
 @dataclass
 class Car:
-    id: UUID
     name: str
     price: Decimal
     snow_tracks: bool
@@ -21,4 +20,7 @@ class Car:
     model_year: datetime
     body_type: BodyType
     available: bool
+
+    def __str__(self):
+        return f"Name: {self.name}\nPrice: {self.price}\nSnow Tracks: {self.snow_tracks}\nBuild Year: {self.build_year}\nModel Year: {self.model_year}\nBody Type: {self.body_type}\nAvailable: {self.available}"
 

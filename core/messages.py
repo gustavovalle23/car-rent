@@ -1,5 +1,5 @@
 welcome_message: str = """
-Welcome to Chuck Norris Fun Facts!
+Welcome to Car Rental System!
 Obs: the default user is "admin" and the default password for this user is "admin"
 
 1. Login
@@ -9,6 +9,15 @@ Obs: the default user is "admin" and the default password for this user is "admi
 """
 
 about_message: str = """This is a project for subject "Tópicos Especiais em Informática"
-Which the purpose is to show some facts about Chuck Norris and other fun facts.
+Which the purpose is to make a car rental system considering weather to.
 Have a fun!
+"""
+
+
+features_menu_message: str = """
+1. Search for a car
+2. List all cars
+3. List all cars by body type
+4. List all cars by price
+5. List all cars by year
 """

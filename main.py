@@ -1,4 +1,4 @@
-from usecases.menu import menu
+from usecases.menu import initial_menu
 
 if __name__ == '__main__':
-    menu()
+    initial_menu()
