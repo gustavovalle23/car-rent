@@ -1,3 +1,4 @@
+from time import sleep
 from core.common import clear_screen
 from core.errors import option_not_found
 
@@ -70,6 +71,42 @@ def rent_car(option: str):
                 f"\n Enter car available: (True/False): {car.available}: ") == 'True' else False
         )
         print('\n Car updated')
+    elif option == '10':
+        import json
+
+
+        def query_db_to_dict(query, args=(), one=False):
+            _, cur = get_cursor()
+            cur.execute(query, args)
+            r = [dict((cur.description[i][0], value) \
+                    for i, value in enumerate(row)) for row in cur.fetchall()]
+            cur.connection.close()
+            return (r[0] if r else None) if one else r
+
+        rents_json = query_db_to_dict("select * from rents")
+        clients_json = query_db_to_dict("select * from clients")
+        users_json = query_db_to_dict("select * from users")
+        cars_json = query_db_to_dict("select * from cars")
+        with open('rents.json', 'w') as f:
+            json.dump(rents_json, f)
+        with open('clients.json', 'w') as f:
+            json.dump(clients_json, f)
+        with open('users.json', 'w') as f:
+            json.dump(users_json, f)
+        with open('cars.json', 'w') as f:
+            json.dump(cars_json, f)
+        """ zip json files """
+        import zipfile
+        import os
+        with zipfile.ZipFile('backup.zip', 'w') as zip:
+            for file in os.listdir('.'):
+                if file.endswith('.json'):
+                    zip.write(file)
+        print('\n Rents exported')
+        sleep(1)
+        print('\n Database exported')
+
+
     else:
         option_not_found()
 
