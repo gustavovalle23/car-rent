@@ -22,4 +22,8 @@ Ok. Let's start!
 3. List all cars by body type
 4. List all cars by price
 5. List all cars by year
+6. List all Rents
+7. List all Clients
+8. Create car
+9. Update car
 """

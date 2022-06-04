@@ -66,6 +66,14 @@ def find_car_by_name(name: str) -> list:
     return convert_to_obj(cars)
 
 
+def find_car_by_id(car_id: int) -> Optional[Car]:
+    conn, c = get_cursor()
+    c.execute(f"SELECT * FROM cars WHERE car_id = {car_id}")
+    car = c.fetchone()
+    conn.close()
+    return convert_to_obj([car])
+
+
 def find_cars_by_body_type(body_type: str) -> Optional[List[Car]]:
     conn, c = get_cursor()
     c.execute(f"SELECT * FROM cars WHERE body_type = '{body_type}'")
@@ -97,3 +105,7 @@ def find_cars_by_year(year: datetime) -> List[Car]:
     cars = c.fetchall()
     conn.close()
     return convert_to_obj(cars)
+
+def update_car(name: str, price: float, snow_tracks: bool, build_year: datetime, model_year: datetime, body_type: BodyType, available: bool, car_id: int) -> bool:
+    conn, c = get_cursor()
+    c.execute(f"UPDATE cars SET name = '{name}', price = {price}, snow_tracks = {snow_tracks}, build_year = '{build_year}', model_year = '{model_year}', body_type = '{body_type.value}', available = {available} WHERE car_id = {car_id}")

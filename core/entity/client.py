@@ -1,15 +1,16 @@
 from dataclasses import dataclass
+from datetime import datetime
 from uuid import UUID
 
 
 @dataclass
-class User:
+class Client:
     id: UUID
     name: str
-    username: str
-    password: str
-    email: str
     phone: str
+    email: str
+    document: str
+    birth_date: datetime
 
     def __str__(self) -> str:
-        return f'{self.name} - {self.username}'
+        return self.name
