@@ -97,3 +97,7 @@ def find_all_users() -> Optional[List[User]]:
     users: Optional[List[User]] = c.fetchall()
     conn.close()
     return convert_to_obj(users)
+
+def import_user_from_dict(user_dict: dict) -> None:
+    """ import user from dict """
+    create_user(user_dict["name"], user_dict["username"], user_dict["password"], user_dict["email"], user_dict["phone"])

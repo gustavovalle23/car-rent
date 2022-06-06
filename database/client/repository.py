@@ -117,3 +117,12 @@ def find_client_by_document(document: str) -> Optional[Client]:
     client: Optional[Client] = c.fetchone()
     conn.close()
     return convert_to_obj([client])
+
+def import_client_from_dict(client_dict: dict) -> None:
+    create_client(
+        name=client_dict['name'],
+        email=client_dict['email'],
+        phone=client_dict['phone'],
+        document=client_dict['document'],
+        birth_date=client_dict['birth_date']
+    )

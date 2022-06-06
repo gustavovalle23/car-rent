@@ -3,8 +3,9 @@ from core.common import clear_screen
 from core.errors import option_not_found
 
 from database.car.repository import *
-from database.client.repository import find_all_clients
-from database.rent.repository import create_rent, find_all_rents
+from database.client.repository import find_all_clients, import_client_from_dict
+from database.rent.repository import create_rent, find_all_rents, import_rent_from_dict
+from database.user.repository import import_user_from_dict
 
 
 def rent_car(option: str):
@@ -112,6 +113,33 @@ def rent_car(option: str):
         response = requests.get(url)
         data = json.loads(response.text)
         print(data['fact'])
+
+    elif option == '12':
+        import requests
+        import json
+        url = 'https://raw.githubusercontent.com/gustavovalle23/car-rent/master/backup/clients.json'
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for client in data:
+            import_client_from_dict(client)
+
+        url = 'https://raw.githubusercontent.com/gustavovalle23/car-rent/master/backup/cars.json'
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for client in data:
+            import_car_from_dict(client)
+
+        url = 'https://raw.githubusercontent.com/gustavovalle23/car-rent/master/backup/rents.json'
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for client in data:
+            import_rent_from_dict(client)
+
+        url = 'https://raw.githubusercontent.com/gustavovalle23/car-rent/master/backup/users.json'
+        response = requests.get(url)
+        data = json.loads(response.text)
+        for client in data:
+            import_user_from_dict(client)
 
 
     else:

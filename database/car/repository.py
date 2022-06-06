@@ -109,3 +109,10 @@ def find_cars_by_year(year: datetime) -> List[Car]:
 def update_car(name: str, price: float, snow_tracks: bool, build_year: datetime, model_year: datetime, body_type: BodyType, available: bool, car_id: int) -> bool:
     conn, c = get_cursor()
     c.execute(f"UPDATE cars SET name = '{name}', price = {price}, snow_tracks = {snow_tracks}, build_year = '{build_year}', model_year = '{model_year}', body_type = '{body_type.value}', available = {available} WHERE car_id = {car_id}")
+
+def import_car_from_dict(car_dict: dict) -> bool:
+    conn, c = get_cursor()
+    c.execute(f"INSERT INTO cars (name, price, snow_tracks, build_year, model_year, body_type, available) VALUES ('{car_dict['name']}', {car_dict['price']}, {car_dict['snow_tracks']}, '{car_dict['build_year']}', '{car_dict['model_year']}', '{car_dict['body_type']}', {car_dict['available']})")
+    conn.commit()
+    conn.close()
+    return True

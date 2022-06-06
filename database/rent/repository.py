@@ -108,3 +108,12 @@ def find_rents_by_end_date(end_date: str) -> List[Rent]:
     rents = c.fetchall()
     conn.close()
     return convert_to_obj(rents)
+
+
+def import_rent_from_dict(rent_dict: dict) -> None:
+    create_rent(
+        car_id=rent_dict['car_id'],
+        client_id=rent_dict['client_id'],
+        initial_date=rent_dict['initial_date'],
+        end_date=rent_dict['end_date']
+    )

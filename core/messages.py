@@ -4,7 +4,8 @@ Obs: the default user is "admin" and the default password for this user is "admi
 
 1. Login
 2. Register
-3. Sobre
+3. About
+4. Seed database
 0. Exit
 """
 
@@ -28,4 +29,5 @@ Ok. Let's start!
 9. Update car
 10. Convert to json and zip
 11. Tell me a fact about cats
+12. Import data from web
 """

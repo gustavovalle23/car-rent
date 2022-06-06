@@ -21,6 +21,8 @@ def create_tables():
 def initial_check():
     create_tables()
 
+
+def seed_database():
     users = find_all_users()
     cars = find_all_cars()
     clients = find_all_clients()
